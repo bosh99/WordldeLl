@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <ctime>
 using namespace std;
 
 class Banco {
@@ -8,8 +9,9 @@ class Banco {
 
         // Seleccionar palabra aleatoriamente
         string palabraRandom(){
-            string palabra = bancoPalabras[rand()%10];
-            cout << "La palabra tiene " << palabra.length() << " caracteres" << endl;
+            srand((unsigned)time(NULL));
+            string palabra = bancoPalabras[(rand()%10)];
+            cout << "La palabra tiene " << "["<<palabra.length()<<"]"<< " caracteres" << endl;
             return palabra;
         }
 };

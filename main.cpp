@@ -11,7 +11,7 @@ void opcionInicioFin() {
     if(respuesta == "1") {
         Banco banco = Banco();
         string palabra = banco.palabraRandom();
-        cout<<palabra<<endl;
+        //cout<<palabra<<endl;
     }
     else {
         cout << "Gracias por jugar\nFin del programa" << endl;
