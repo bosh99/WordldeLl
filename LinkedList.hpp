@@ -1,22 +1,25 @@
+#include <bits/stdc++.h>
 #include <iostream>
 using namespace std;
 
 class Node {
     public:
-        int value;
+        char value;
         Node* next;
+        string color = "blanco";
 
-        Node(int value) {
+        Node(char value) {
             this->value = value;
             this->next = NULL;
         }
+        
 };
 
 class LinkedList {
     public:
         Node* head = NULL;
 
-        void add_at_head(int value) {
+        void add_at_head(char value) {
             Node* new_node = new Node(value);
             if (this->head == NULL) {
                 this->head = new_node;    
@@ -35,10 +38,10 @@ class LinkedList {
                 std::cout << curr->value << " -> " ;
                 curr = curr->next;
             }
-            cout << "NULL" << "\n" << endl;
+            cout<<endl;
         }
 
-        void add_at_end(int value) {
+        void add_at_end(char value) {
             Node* new_node = new Node(value);
             Node* curr = this->head;
 
