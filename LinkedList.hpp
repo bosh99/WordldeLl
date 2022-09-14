@@ -50,4 +50,32 @@ class LinkedList {
             }
             curr->next = new_node;
         }
+
+        bool compararlistas(LinkedList entrada) {
+            Node* curr_rand = this->head; 
+            Node* curr_entr = entrada.head;
+
+            int i;
+            int j = 1;
+            while(curr_entr != NULL) {
+                i = 1;
+                while(curr_rand != NULL) {
+                    if(curr_entr->value == curr_rand->value and i == j) {
+                        curr_entr->color = "verde";
+                    }
+                    else if(curr_entr->value == curr_rand->value and i !=j) {
+                        if( curr_entr->color == "verde"){
+                            break;
+                        }
+                        else{
+                            curr_entr->color = "amarillo";
+                        }
+                    }
+                    curr_rand = curr_rand->next;
+                    i++;
+                }
+                curr_entr = curr_entr->next;
+                j++;
+            }
+        }
 };

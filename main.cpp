@@ -33,14 +33,13 @@ void opcionInicioFin() {
         string p_random = banco.palabraRandom();
         cout << "La palabra tiene " << "["<<p_random.length()<<"]"<< " caracteres" << endl;
         LinkedList ll_random = pasar_a_lista(p_random);
-        ll_random.traverse();
+        //!ll_random.traverse();
         
     }
     else {
         cout << "Gracias por jugar\nFin del programa" << endl;
     } 
 }
-
 int main(){
     cout<<"´¨*Bienvendio a WORDLE en VS code*¨´"<<endl;
     opcionInicioFin();
@@ -54,5 +53,7 @@ int main(){
     ll.add_at_end(b);
     ll.add_at_end(c);
 */  
+
+    
 }
 
