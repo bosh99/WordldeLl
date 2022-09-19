@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <iostream>
+#include "colormod.hpp"
 
 using namespace std;
 
@@ -94,10 +95,22 @@ class LinkedList {
 
         void printearColor() {
             Node* curr = this->head;
+            Color::Modifier verde(Color::FG_GREEN);
+            Color::Modifier amarillo(Color::FG_YELLOW);
+            Color::Modifier def(Color::FG_DEFAULT);
             while (curr != NULL) {
-                cout << curr->value << " " << curr->color << endl;
+                if(curr->color == "verde") {
+                    cout << verde << curr->value << def;
+                }
+                else if(curr->color == "amarillo") {
+                    cout << amarillo << curr->value << def;
+                }
+                else {
+                    cout << def << curr->value;
+                }
                 curr = curr->next;
             }
+            cout << def << "\n";
         }
 
         bool resultado() {

@@ -23,11 +23,13 @@ LinkedList pasar_a_lista(string palabra) {
     return ll;
 }
 
+
 void opcionInicioFin() {
     cout << "--Ingrese el 1 si quiere iniciar el juego\n";
     cout << "--Ingrese otro número si quiere finalizar el programa\n";
     string respuesta;
     cin >> respuesta;
+    
     if(respuesta == "1") {
         Banco banco = Banco();
         string p_random = banco.palabraRandom();
@@ -51,10 +53,13 @@ void opcionInicioFin() {
         }
         cout << "FINALIZÓ EL JUEGO, MUCHAS GRACIAS" << endl;
     }
+
     else {
         cout << "Vuelve pronto\nFin del programa..." << endl;
     } 
 }
+
+
 int main(){
     cout<<"´¨*Bienvendio a WORDLE en VS code*¨´"<<endl;
     opcionInicioFin();
