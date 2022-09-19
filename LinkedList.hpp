@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 #include <iostream>
+
 using namespace std;
 
 class Node {
@@ -51,7 +52,7 @@ class LinkedList {
             curr->next = new_node;
         }
 
-        bool compararlistas(LinkedList entrada) {
+        void compararlistas(LinkedList entrada) {
             Node* curr_rand = this->head; 
             Node* curr_entr = entrada.head;
 
@@ -59,9 +60,11 @@ class LinkedList {
             int j = 1;
             while(curr_entr != NULL) {
                 i = 1;
+                curr_rand = this->head;
                 while(curr_rand != NULL) {
                     if(curr_entr->value == curr_rand->value and i == j) {
                         curr_entr->color = "verde";
+                        break;
                     }
                     else if(curr_entr->value == curr_rand->value and i !=j) {
                         if( curr_entr->color == "verde"){
@@ -76,6 +79,42 @@ class LinkedList {
                 }
                 curr_entr = curr_entr->next;
                 j++;
+            }
+        }
+
+        int size() {
+            int sz = 0;
+            Node* curr = this->head;
+            while (curr != NULL) {
+                sz++;
+                curr = curr->next;
+            }
+            return sz;
+        }
+
+        void printearColor() {
+            Node* curr = this->head;
+            while (curr != NULL) {
+                cout << curr->value << " " << curr->color << endl;
+                curr = curr->next;
+            }
+        }
+
+        bool resultado() {
+            Node* curr = this->head;
+            int sz = this->size();
+            int cont = 0;
+            while(curr != NULL) {
+                if(curr->color == "verde") {
+                    cont++;
+                }
+                curr = curr->next;
+            }
+            if(cont == sz) {
+                return true;
+            }
+            else {
+                return false;
             }
         }
 };

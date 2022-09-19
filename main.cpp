@@ -33,27 +33,30 @@ void opcionInicioFin() {
         string p_random = banco.palabraRandom();
         cout << "La palabra tiene " << "["<<p_random.length()<<"]"<< " caracteres" << endl;
         LinkedList ll_random = pasar_a_lista(p_random);
-        //!ll_random.traverse();
-        
+        string intento;
+
+        for (int i = 1 ; i < 7 ; i++) {
+            cout<<"Digite su intento #" << i << ": " <<endl;
+            cin>>intento;
+            LinkedList ll_intento =  pasar_a_lista(intento);
+            ll_random.compararlistas(ll_intento);
+            ll_intento.printearColor();
+            if(ll_intento.resultado()) {
+                cout<<"FELICIDADES, GANASTE!!!!!!!!!!!!!"<<endl;
+                break;
+            }
+            else if (i == 6 and ll_intento.resultado() == false) {
+                cout<<"HAS PERDIDO, INTENTA DE NUEVO!" << endl;
+            }
+        }
+        cout << "FINALIZÓ EL JUEGO, MUCHAS GRACIAS" << endl;
     }
     else {
-        cout << "Gracias por jugar\nFin del programa" << endl;
+        cout << "Vuelve pronto\nFin del programa..." << endl;
     } 
 }
 int main(){
     cout<<"´¨*Bienvendio a WORDLE en VS code*¨´"<<endl;
     opcionInicioFin();
-
-/*
-    LinkedList ll;
-    char a = 'a';
-    char b = 'b';
-    char c = 'c';
-    ll.add_at_head(a);
-    ll.add_at_end(b);
-    ll.add_at_end(c);
-*/  
-
-    
 }
 
