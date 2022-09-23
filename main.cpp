@@ -38,19 +38,28 @@ void opcionInicioFin() {
         LinkedList ll_random = pasar_a_lista(p_random);
         string intento;
 
-        for (int i = 1 ; i < 7 ; i++) {
+        int i = 1;
+        while(i<7) {
             cout<<"Digite su intento #" << i << ": " <<endl;
             cin>>intento;
-            LinkedList ll_intento =  pasar_a_lista(intento);
-            ll_random.compararListas(ll_intento);
-            ll_intento.printearColor();
-            if(ll_intento.resultado()) {
-                cout<<"FELICIDADES, GANASTE!!!!!!!!!!!!!"<<endl;
-                break;
+            if(intento.length() == p_random.length()) {
+                LinkedList ll_intento =  pasar_a_lista(intento);
+                ll_random.compararListas(ll_intento);
+                ll_intento.printearColor();
+                if(ll_intento.resultado()) {
+                    cout<<"FELICIDADES, GANASTE!!!!!!!!!!!!!"<<endl;
+                    break;
+                }
+                else if (i == 6 and ll_intento.resultado() == false) {
+                    ll_random.p_incorrecta();
+                    cout << "LA PALABRA ERA: ";
+                    ll_random.printearColor();
+                    cout << "HAS PERDIDO, INTENTA DE NUEVO!" << endl;
+                }
+                i++; 
             }
-            else if (i == 6 and ll_intento.resultado() == false) {
-                cout << "LA PALABRA ERA: " << p_random << endl;
-                cout << "HAS PERDIDO, INTENTA DE NUEVO!" << endl;
+            else {
+                cout<<"INGRESE LA PALABRA CON EL NÚMERO DE CARACTERES CORRECTOS"<< " ["<<p_random.length()<<"]" << endl;
             }
         }
         cout << "FINALIZÓ EL JUEGO, MUCHAS GRACIAS" << endl;

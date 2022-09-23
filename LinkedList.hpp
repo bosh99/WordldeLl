@@ -34,10 +34,9 @@ class LinkedList {
 
         void traverse() {
             Node* curr = this->head;
-            //curr = this->head;
 
             while(curr != NULL) {
-                std::cout << curr->value << " -> " ;
+                cout << curr->value << " -> " ;
                 curr = curr->next;
             }
             cout<<endl;
@@ -98,12 +97,16 @@ class LinkedList {
             Color::Modifier verde(Color::FG_GREEN);
             Color::Modifier amarillo(Color::FG_YELLOW);
             Color::Modifier def(Color::FG_DEFAULT);
+            Color::Modifier rojo(Color::FG_RED);
             while (curr != NULL) {
                 if(curr->color == "verde") {
                     cout << verde << curr->value << def;
                 }
                 else if(curr->color == "amarillo") {
                     cout << amarillo << curr->value << def;
+                }
+                else if(curr->color == "rojo") {
+                    cout << rojo << curr->value << def;
                 }
                 else {
                     cout << def << curr->value;
@@ -128,6 +131,14 @@ class LinkedList {
             }
             else {
                 return false;
+            }
+        }
+
+        void p_incorrecta() {
+            Node* curr = this->head;
+            while(curr!=NULL) {
+                curr->color = "rojo";
+                curr = curr->next;
             }
         }
 };
