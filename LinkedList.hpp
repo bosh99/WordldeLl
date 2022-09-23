@@ -53,7 +53,7 @@ class LinkedList {
             curr->next = new_node;
         }
 
-        void compararlistas(LinkedList entrada) {
+        void compararListas(LinkedList entrada) {
             Node* curr_rand = this->head; 
             Node* curr_entr = entrada.head;
 

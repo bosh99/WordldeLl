@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cctype>
 #include "LinkedList.hpp"
 #include "Banco.hpp"
 using namespace std;
@@ -12,11 +13,11 @@ LinkedList pasar_a_lista(string palabra) {
         ll.add_at_head('A');
     }
 
-    ll.head->value = palabra_arr[0];
+    ll.head->value = toupper(palabra_arr[0]);
     Node* curr = ll.head->next;
     int i = 1;
     while(curr != NULL && i <= palabra.length()) {
-        curr->value = palabra_arr[i];
+        curr->value = toupper(palabra_arr[i]);
         curr = curr->next;
         i++;
     }
@@ -41,14 +42,15 @@ void opcionInicioFin() {
             cout<<"Digite su intento #" << i << ": " <<endl;
             cin>>intento;
             LinkedList ll_intento =  pasar_a_lista(intento);
-            ll_random.compararlistas(ll_intento);
+            ll_random.compararListas(ll_intento);
             ll_intento.printearColor();
             if(ll_intento.resultado()) {
                 cout<<"FELICIDADES, GANASTE!!!!!!!!!!!!!"<<endl;
                 break;
             }
             else if (i == 6 and ll_intento.resultado() == false) {
-                cout<<"HAS PERDIDO, INTENTA DE NUEVO!" << endl;
+                cout << "LA PALABRA ERA: " << p_random << endl;
+                cout << "HAS PERDIDO, INTENTA DE NUEVO!" << endl;
             }
         }
         cout << "FINALIZÓ EL JUEGO, MUCHAS GRACIAS" << endl;
@@ -61,7 +63,7 @@ void opcionInicioFin() {
 
 
 int main(){
-    cout<<"´¨*Bienvendio a WORDLE en VS code*¨´"<<endl;
+    cout<<"´¨*Bienvenido a WORDLE en terminal*¨´"<<endl;
     opcionInicioFin();
 }
 
